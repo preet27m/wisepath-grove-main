@@ -25,7 +25,7 @@ const Community = () => {
       date: '2023-12-10T18:00:00',
       location: 'Tech Hub, San Francisco',
       attendees: 42,
-      imageUrl: '/placeholder.svg'
+      imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const Community = () => {
       date: '2023-12-15T10:00:00',
       location: 'Creative Space, New York',
       attendees: 28,
-      imageUrl: '/placeholder.svg'
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Community = () => {
       date: '2023-12-20T09:00:00',
       location: 'University Center, Boston',
       attendees: 114,
-      imageUrl: '/placeholder.svg'
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
     }
   ];
 
@@ -51,28 +51,32 @@ const Community = () => {
       name: 'JavaScript Developers',
       members: 1245,
       topics: 89,
-      lastActive: '2 hours ago'
+      lastActive: '2 hours ago',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'
     },
     {
       id: 2,
       name: 'UX/UI Design Enthusiasts',
       members: 876,
       topics: 54,
-      lastActive: '5 hours ago'
+      lastActive: '5 hours ago',
+      imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
     },
     {
       id: 3,
       name: 'Data Science & AI',
       members: 2134,
       topics: 127,
-      lastActive: '1 hour ago'
+      lastActive: '1 hour ago',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
     },
     {
       id: 4,
       name: 'Full Stack Development',
       members: 1567,
       topics: 98,
-      lastActive: '3 hours ago'
+      lastActive: '3 hours ago',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80'
     }
   ];
 
@@ -155,6 +159,13 @@ const Community = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {discussionGroups.map((group) => (
                   <Card key={group.id} className="glass-card overflow-hidden hover:shadow-forest/20 hover:shadow-lg transition-all duration-300">
+                    <div className="h-32 bg-forest/20 relative">
+                      <img 
+                        src={group.imageUrl} 
+                        alt={group.name} 
+                        className="w-full h-full object-cover opacity-70"
+                      />
+                    </div>
                     <CardContent className="p-6">
                       <div className="flex justify-between items-start">
                         <div>

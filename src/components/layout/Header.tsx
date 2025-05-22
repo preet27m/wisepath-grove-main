@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, Menu, X, Sun, Moon, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 import ThemeToggle from '../ui/ThemeToggle';
 
@@ -9,6 +9,9 @@ const Header = () => {
   const [sidebarState, setSidebarState] = useState(() => {
     return localStorage.getItem('sidebar_state') || 'expanded';
   });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showSearchInput, setShowSearchInput] = useState(false);
+  const navigate = useNavigate();
   
   // Update header styling on scroll
   useEffect(() => {
@@ -64,6 +67,19 @@ const Header = () => {
     window.dispatchEvent(new CustomEvent('sidebarStateChanged', { 
       detail: { state: newState } 
     }));
+  };
+
+  const handleSearchClick = () => {
+    setShowSearchInput(!showSearchInput);
+  };
+  
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery('');
+      setShowSearchInput(false);
+    }
   };
 
   const navItems = [
@@ -123,12 +139,35 @@ const Header = () => {
         
         {/* Actions */}
         <div className="hidden md:flex items-center space-x-4">
-          <button 
-            aria-label="Search" 
-            className="w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          >
-            <Search className="h-5 w-5" />
-          </button>
+          {showSearchInput ? (
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search..."
+                className="w-48 h-10 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 
+                  bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300
+                  focus:outline-none focus:ring-2 focus:ring-primary/20"
+                autoFocus
+              />
+              <button 
+                type="submit"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                aria-label="Submit search"
+              >
+                <Search className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+              </button>
+            </form>
+          ) : (
+            <button 
+              onClick={handleSearchClick}
+              aria-label="Search" 
+              className="w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+          )}
           
           <ThemeToggle />
           

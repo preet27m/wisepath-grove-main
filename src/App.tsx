@@ -23,6 +23,10 @@ import Signup from "./pages/Signup";
 import CourseEnrollment from "./pages/CourseEnrollment";
 import EnrollmentSuccess from "./pages/EnrollmentSuccess";
 import LoginPrompt from "./components/auth/LoginPrompt";
+import Blog from "./pages/Blog";
+import About from "./pages/About";
+import Search from "./pages/Search";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +74,10 @@ const App = () => {
                 <Route path="/courses" element={<Courses />} />
                 <Route path="/courses/:courseId" element={<CourseDetail />} />
                 <Route path="/community" element={<Community />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="/learning-room" element={<LearningRoom />} />
                 <Route path="/micro-internships" element={<MicroInternships />} />
                 <Route path="/ai-mentor" element={<AIMentor />} />

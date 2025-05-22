@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -92,8 +91,14 @@ const StudentDashboard = () => {
                   <div key={course} className="glass-card rounded-xl overflow-hidden">
                     <div className="relative h-40">
                       <img 
-                        src={`https://images.unsplash.com/photo-160${course}761568499-6d2451b23c66?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ`} 
-                        alt="Course thumbnail" 
+                        src={course === 1 ? 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             course === 2 ? 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80' :
+                             course === 3 ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'} 
+                        alt={course === 1 ? 'Machine Learning visualization with neural networks' :
+                             course === 2 ? 'Web development code editor with modern tools' :
+                             course === 3 ? 'Data science dashboard with visualizations' :
+                             'UX/UI design workspace with wireframes'} 
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-offblack/90 to-transparent">

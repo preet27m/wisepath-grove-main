@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -22,7 +21,7 @@ const Courses = () => {
       title: 'Introduction to Machine Learning',
       instructor: 'Dr. Jane Smith',
       progress: 65,
-      imageUrl: '/placeholder.svg',
+      imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       rating: 4.8,
       totalLessons: 24,
       completedLessons: 15
@@ -32,7 +31,7 @@ const Courses = () => {
       title: 'Advanced React Development',
       instructor: 'Thomas Wilson',
       progress: 42,
-      imageUrl: '/placeholder.svg',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80',
       rating: 4.6,
       totalLessons: 18,
       completedLessons: 7
@@ -42,7 +41,7 @@ const Courses = () => {
       title: 'Data Science Fundamentals',
       instructor: 'Prof. Robert Chen',
       progress: 27,
-      imageUrl: '/placeholder.svg',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       rating: 4.9,
       totalLessons: 30,
       completedLessons: 8
@@ -55,7 +54,7 @@ const Courses = () => {
       title: 'Web Development Basics',
       instructor: 'Jessica Miller',
       completionDate: '2023-04-15',
-      imageUrl: '/placeholder.svg',
+      imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80',
       rating: 4.5,
       certificateId: 'WD-2023-04-1234'
     },
@@ -64,7 +63,7 @@ const Courses = () => {
       title: 'UX Design Principles',
       instructor: 'Michael Brown',
       completionDate: '2023-06-22',
-      imageUrl: '/placeholder.svg',
+      imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       rating: 4.7,
       certificateId: 'UX-2023-06-5678'
     }
@@ -88,11 +87,11 @@ const Courses = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {registeredCourses.map((course) => (
                   <Card key={course.id} className="glass-card overflow-hidden hover:shadow-forest/20 hover:shadow-lg transition-all duration-300">
-                    <div className="h-40 bg-forest/20 relative">
+                    <div className="h-48 bg-forest/20 relative">
                       <img 
                         src={course.imageUrl} 
                         alt={course.title} 
-                        className="w-full h-full object-cover opacity-70"
+                        className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
                       />
                       <div className="absolute bottom-3 right-3 bg-forest text-cream text-sm px-2 py-1 rounded-full">
                         <div className="flex items-center">
@@ -138,11 +137,11 @@ const Courses = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {completedCourses.map((course) => (
                   <Card key={course.id} className="glass-card overflow-hidden hover:shadow-forest/20 hover:shadow-lg transition-all duration-300">
-                    <div className="h-40 bg-forest/20 relative">
+                    <div className="h-48 bg-forest/20 relative">
                       <img 
                         src={course.imageUrl} 
                         alt={course.title} 
-                        className="w-full h-full object-cover opacity-70"
+                        className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
                       />
                       <div className="absolute top-3 right-3 bg-forest text-cream text-sm px-2 py-1 rounded-full">
                         <div className="flex items-center">

@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
@@ -93,8 +92,16 @@ const InstructorDashboard = () => {
                   <div key={course} className="glass-card rounded-xl overflow-hidden">
                     <div className="relative h-40">
                       <img 
-                        src={`https://images.unsplash.com/photo-160${course}761568499-6d2451b23c66?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ`} 
-                        alt="Course thumbnail" 
+                        src={course === 1 ? 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             course === 2 ? 'https://images.unsplash.com/photo-1526379879527-8559ecfcaec4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             course === 3 ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             course === 4 ? 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' :
+                             'https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'} 
+                        alt={course === 1 ? 'Machine Learning visualization with neural networks' :
+                             course === 2 ? 'Python programming code editor' :
+                             course === 3 ? 'Data science dashboard with visualizations' :
+                             course === 4 ? 'Neural networks and deep learning visualization' :
+                             'AI ethics and applications concept'} 
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-offblack/90 to-transparent">
@@ -160,7 +167,45 @@ const InstructorDashboard = () => {
                                item === 3 ? 'Neural Networks Architecture' :
                                'Model Evaluation Techniques'}
                             </p>
-                            <p className="text-xs text-sand">Duration: {item === 1 ? '45 mins' : item === 2 ? '1 hour 12 mins' : item === 3 ? '58 mins' : '1 hour 22 mins'}</p>
+                            <p className="text-xs text-sand">
+                              {item === 1 ? (
+                                <a 
+                                  href="https://youtu.be/C6YtPJxNULA?si=wC0b-ILX4SZ9BUWU" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-forest hover:text-forest-light"
+                                >
+                                  Watch on YouTube
+                                </a>
+                              ) : item === 2 ? (
+                                <a 
+                                  href="https://youtu.be/4ObVzTuFivY?si=QxZxXxXxXxXxXxXx" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-forest hover:text-forest-light"
+                                >
+                                  Watch on YouTube
+                                </a>
+                              ) : item === 3 ? (
+                                <a 
+                                  href="https://youtu.be/aircAruvnKk?si=QxZxXxXxXxXxXxXx" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-forest hover:text-forest-light"
+                                >
+                                  Watch on YouTube
+                                </a>
+                              ) : (
+                                <a 
+                                  href="https://youtu.be/0xVqLJe9_CY?si=QxZxXxXxXxXxXxXx" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-forest hover:text-forest-light"
+                                >
+                                  Watch on YouTube
+                                </a>
+                              )}
+                            </p>
                           </div>
                           <button className="text-xs py-1 px-2 text-forest">Edit</button>
                           <button className="text-xs py-1 px-2 text-forest ml-2">Preview</button>

@@ -86,8 +86,8 @@ const Sidebar = () => {
           )}
         </button>
 
-        {/* Logo and header */}
-        <div className="p-4 flex items-center justify-between">
+        {/* Logo and header - Fixed at top */}
+        <div className="p-4 flex items-center justify-between sticky top-0 bg-offblack/95 z-10">
           {!isCollapsed && (
             <Link to="/" className="text-xl font-bold text-cream">
               <span className="text-gradient font-display">CurioCity</span>
@@ -100,115 +100,117 @@ const Sidebar = () => {
           )}
         </div>
 
-        {/* Navigation items */}
-        <nav className="mt-8 px-2">
-          <ul className="space-y-2">
-            <NavItem 
-              to="/" 
-              icon={<Home />} 
-              label="Home" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/'}
-            />
-            <NavItem 
-              to="/courses" 
-              icon={<Book />} 
-              label="Courses" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname.includes('/courses')}
-            />
-            <NavItem 
-              to="/learning-room" 
-              icon={<Users />} 
-              label="Learning Rooms" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/learning-room'}
-            />
-            <NavItem 
-              to="/micro-internships" 
-              icon={<Briefcase />} 
-              label="Micro-Internships" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/micro-internships'}
-            />
-            <NavItem 
-              to="/ai-mentor" 
-              icon={<Brain />} 
-              label="AI Mentor" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/ai-mentor'}
-            />
-            <NavItem 
-              to="/time-capsule" 
-              icon={<Clock />} 
-              label="Time Capsule" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/time-capsule'}
-            />
-            <NavItem 
-              to="/simulations" 
-              icon={<Sparkles />} 
-              label="Simulations" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/simulations'}
-            />
-            <NavItem 
-              to="/community" 
-              icon={<MessageSquare />} 
-              label="Community" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/community'}
-            />
-            
-            {/* New dashboards */}
-            <li className="pt-4 pb-1">
-              {!isCollapsed && <p className="text-xs text-cream/50 px-3">Dashboards</p>}
-            </li>
-            <NavItem 
-              to="/student-dashboard" 
-              icon={<User />} 
-              label="Student Dashboard" 
-              isCollapsed={isCollapsed} 
-              isActive={location.pathname === '/student-dashboard'}
-            />
-            <NavItem 
-              to="/instructor-dashboard" 
-              icon={<Users />} 
-              label="Instructor Dashboard" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/instructor-dashboard'}
-            />
-            
-            {/* New resources */}
-            <li className="pt-4 pb-1">
-              {!isCollapsed && <p className="text-xs text-cream/50 px-3">Resources</p>}
-            </li>
-            <NavItem 
-              to="/certificates" 
-              icon={<Award />} 
-              label="Certificates" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/certificates'}
-            />
-            <NavItem 
-              to="/video-lessons" 
-              icon={<Video />} 
-              label="Video Lessons" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/video-lessons'}
-            />
-            <NavItem 
-              to="/notes" 
-              icon={<FileText />} 
-              label="Notes & PDFs" 
-              isCollapsed={isCollapsed}
-              isActive={location.pathname === '/notes'}
-            />
-          </ul>
-        </nav>
+        {/* Navigation items - Scrollable */}
+        <div className="h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar">
+          <nav className="mt-8 px-2">
+            <ul className="space-y-2">
+              <NavItem 
+                to="/" 
+                icon={<Home />} 
+                label="Home" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/'}
+              />
+              <NavItem 
+                to="/courses" 
+                icon={<Book />} 
+                label="Courses" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname.includes('/courses')}
+              />
+              <NavItem 
+                to="/learning-room" 
+                icon={<Users />} 
+                label="Learning Rooms" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/learning-room'}
+              />
+              <NavItem 
+                to="/micro-internships" 
+                icon={<Briefcase />} 
+                label="Micro-Internships" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/micro-internships'}
+              />
+              <NavItem 
+                to="/ai-mentor" 
+                icon={<Brain />} 
+                label="AI Mentor" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/ai-mentor'}
+              />
+              <NavItem 
+                to="/time-capsule" 
+                icon={<Clock />} 
+                label="Time Capsule" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/time-capsule'}
+              />
+              <NavItem 
+                to="/simulations" 
+                icon={<Sparkles />} 
+                label="Simulations" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/simulations'}
+              />
+              <NavItem 
+                to="/community" 
+                icon={<MessageSquare />} 
+                label="Community" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/community'}
+              />
+              
+              {/* New dashboards */}
+              <li className="pt-4 pb-1">
+                {!isCollapsed && <p className="text-xs text-cream/50 px-3">Dashboards</p>}
+              </li>
+              <NavItem 
+                to="/student-dashboard" 
+                icon={<User />} 
+                label="Student Dashboard" 
+                isCollapsed={isCollapsed} 
+                isActive={location.pathname === '/student-dashboard'}
+              />
+              <NavItem 
+                to="/instructor-dashboard" 
+                icon={<Users />} 
+                label="Instructor Dashboard" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/instructor-dashboard'}
+              />
+              
+              {/* New resources */}
+              <li className="pt-4 pb-1">
+                {!isCollapsed && <p className="text-xs text-cream/50 px-3">Resources</p>}
+              </li>
+              <NavItem 
+                to="/certificates" 
+                icon={<Award />} 
+                label="Certificates" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/certificates'}
+              />
+              <NavItem 
+                to="/video-lessons" 
+                icon={<Video />} 
+                label="Video Lessons" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/video-lessons'}
+              />
+              <NavItem 
+                to="/notes" 
+                icon={<FileText />} 
+                label="Notes & PDFs" 
+                isCollapsed={isCollapsed}
+                isActive={location.pathname === '/notes'}
+              />
+            </ul>
+          </nav>
+        </div>
 
-        {/* Footer with theme toggle */}
-        <div className="absolute bottom-4 left-0 right-0 px-4">
+        {/* Footer with theme toggle - Fixed at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-4 bg-offblack/95 z-10">
           <div className="flex items-center justify-center">
             <ThemeToggle />
           </div>
